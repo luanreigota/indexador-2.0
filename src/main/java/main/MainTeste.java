@@ -1,9 +1,10 @@
 package main;
 
-public class Main {
+public class MainTeste {
 
 	public static void main(String[] args) {
 		
+		
+		
 	}
-	
 }
