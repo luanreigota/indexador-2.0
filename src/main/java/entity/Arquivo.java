@@ -7,4 +7,6 @@ public class Arquivo {
 	private String caminho;
 	private String ultimaModificacao;
 	
+	
+	
 }
