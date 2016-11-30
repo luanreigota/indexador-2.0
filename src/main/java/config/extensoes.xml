@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+  <entity.Extensoes>
+    <extensao>.php</extensao>
+  </entity.Extensoes>
+  <entity.Extensoes>
+    <extensao>.pdf</extensao>
+  </entity.Extensoes>
+</list>

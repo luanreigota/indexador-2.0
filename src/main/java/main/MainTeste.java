@@ -1,12 +1,12 @@
 package main;
 
 import java.io.IOException;
-import java.nio.file.FileVisitResult;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
+import java.util.ArrayList;
+import java.util.List;
+
+import config.GenericSerialization;
+import entity.Config;
+import entity.Extensoes;
 
 
 
@@ -14,7 +14,18 @@ public class MainTeste {
 
 	public static void main(String[] args) throws IOException {
 		
+		List<Extensoes> extensoes = new ArrayList<>();
+		extensoes.add(new Extensoes(".php"));
+		extensoes.add(new Extensoes(".pdf"));
 		
+		new GenericSerialization().inserir("../indexado-2.0/src/main/java/config/extensoes.xml", extensoes);
+		new GenericSerialization().inserir("../indexado-2.0/src/main/java/config/config.xml", new Config("teste1", "teste2"));
+		
+//		new SerializacaoConfig().inserirConfig();
+//		new SerializacaoExtensoes().inserirExtensao();
+//		new ManipuladorConfig().leitor("../indexado-2.0/src/main/java/config/config.xml");
+		
+		/*
 		Path path = Paths.get(System.getProperty("user.home")+"/bkp-portal-cmrj");
 		Files.walkFileTree(path, new SimpleFileVisitor<Path>(){
 		
@@ -30,7 +41,7 @@ public class MainTeste {
 				// TODO Auto-generated method stub
 				return super.visitFile(file, attrs);
 			}
-		});
+		});*/
 		
 	}
 }
