@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import config.GenericSerialization;
+import config.SerializacaoConfig;
+import config.SerializacaoExtensoes;
 import entity.Config;
 import entity.Extensoes;
 
@@ -14,12 +16,22 @@ public class MainTeste {
 
 	public static void main(String[] args) throws IOException {
 		
-		List<Extensoes> extensoes = new ArrayList<>();
-		extensoes.add(new Extensoes(".php"));
-		extensoes.add(new Extensoes(".pdf"));
+//		List<Extensoes> extensoes = new ArrayList<>();
+//		extensoes.add(new Extensoes(".php"));
+//		extensoes.add(new Extensoes(".pdf"));
 		
-		new GenericSerialization().inserir("../indexado-2.0/src/main/java/config/extensoes.xml", extensoes);
-		new GenericSerialization().inserir("../indexado-2.0/src/main/java/config/config.xml", new Config("teste1", "teste2"));
+		Config config = (Config) new SerializacaoConfig().leitor();
+		
+		List<Extensoes> extensoes = (List<Extensoes>) new SerializacaoExtensoes().leitor();
+		
+		System.out.println(config.getPathIndexar());
+		
+		for (Extensoes extensoes2 : extensoes) {
+			System.out.println(extensoes2.getExtensao());
+		}
+		
+//		new GenericSerialization().inserir("../indexado-2.0/src/main/java/config/extensoes.xml", extensoes);
+//		new GenericSerialization().inserir("../indexado-2.0/src/main/java/config/config.xml", new Config("teste1", "teste2"));
 		
 //		new SerializacaoConfig().inserirConfig();
 //		new SerializacaoExtensoes().inserirExtensao();
