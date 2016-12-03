@@ -3,7 +3,6 @@ package entity;
 public class Extensoes {
 
 	private String extensao;
-
 	
 	public Extensoes(String extensao) {
 		super();

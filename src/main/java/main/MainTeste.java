@@ -21,14 +21,23 @@ public class MainTeste {
 //		extensoes.add(new Extensoes(".pdf"));
 		
 		Config config = (Config) new SerializacaoConfig().leitor();
-		
-		List<Extensoes> extensoes = (List<Extensoes>) new SerializacaoExtensoes().leitor();
-		
 		System.out.println(config.getPathIndexar());
+		System.out.println(config.getPathIndice());
 		
-		for (Extensoes extensoes2 : extensoes) {
-			System.out.println(extensoes2.getExtensao());
-		}
+		new SerializacaoConfig().alterarPathIndice("novo indice");
+		Config config2 = (Config) new SerializacaoConfig().leitor();
+		System.out.println(config2.getPathIndexar());
+		System.out.println(config2.getPathIndice());
+//		new SerializacaoExtensoes().addExtensao(".html");
+		
+		
+//		new SerializacaoExtensoes().removerExtensao(0);
+//		List<Extensoes> extensoes = (List<Extensoes>) new SerializacaoExtensoes().leitor();
+		
+		
+//		for (Extensoes extensoes2 : extensoes) {
+//			System.out.println(extensoes2.getExtensao());
+//		}
 		
 //		new GenericSerialization().inserir("../indexado-2.0/src/main/java/config/extensoes.xml", extensoes);
 //		new GenericSerialization().inserir("../indexado-2.0/src/main/java/config/config.xml", new Config("teste1", "teste2"));
