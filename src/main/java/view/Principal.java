@@ -1,6 +1,11 @@
 package view;
 
 
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;import java.awt.MenuBar;
+
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -16,12 +21,12 @@ public class Principal extends JFrame{
 	public Principal(String title){
 		super(title);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
 		setSize(300, 300);
 		JDesktopPane desktopPane = new JDesktopPane();
 		getContentPane().add(desktopPane);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 300, 21);
 		desktopPane.add(menuBar);
 		
 		JMenu mnTeste = new JMenu("teste");
@@ -29,6 +34,9 @@ public class Principal extends JFrame{
 		
 		JMenuItem mntmTeste = new JMenuItem("teste2");
 		mnTeste.add(mntmTeste);
+		
+		menuBar.setLayout(new GridBagLayout());
+		setJMenuBar(menuBar);
 		setVisible(true);
 	}
 }
