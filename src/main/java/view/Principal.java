@@ -54,9 +54,14 @@ public class Principal {
 		frame.getContentPane().add(desktopPane, BorderLayout.CENTER);
 		desktopPane.setLayout(null);
 		
-		JMenuBar menuBar = new JMenuBar();
+		JMenuBar menuBar = getMyJMenuBar(desktopPane);
 		frame.getContentPane().add(menuBar, BorderLayout.NORTH);
 		
+		
+	}
+
+	private JMenuBar getMyJMenuBar(JDesktopPane desktopPane){
+		JMenuBar menuBar = new JMenuBar();
 		JMenu arquivo = new JMenu("Arquivo");
 		menuBar.add(arquivo);
 		
@@ -78,6 +83,7 @@ public class Principal {
 			}
 		});
 		arquivo.add(indexar);
+		return menuBar;
 	}
-
+	
 }
