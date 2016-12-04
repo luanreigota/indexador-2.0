@@ -1,42 +1,83 @@
 package view;
 
+import java.awt.EventQueue;
 
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;import java.awt.MenuBar;
-
-import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
-import javax.swing.WindowConstants;
+import javax.swing.JDesktopPane;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-@SuppressWarnings("serial")
-public class Principal extends JFrame{
+public class Principal {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
 	public static void main(String[] args) {
-		new Principal("Indexador 2.0");
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Principal window = new Principal();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
-	public Principal(String title){
-		super(title);
-		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		setLayout(new FlowLayout());
-		setSize(300, 300);
+
+	/**
+	 * Create the application.
+	 */
+	public Principal() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 900, 500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		JDesktopPane desktopPane = new JDesktopPane();
-		getContentPane().add(desktopPane);
+		desktopPane.setBackground(Color.WHITE);
+		frame.getContentPane().add(desktopPane, BorderLayout.CENTER);
+		desktopPane.setLayout(null);
 		
 		JMenuBar menuBar = new JMenuBar();
-		desktopPane.add(menuBar);
+		frame.getContentPane().add(menuBar, BorderLayout.NORTH);
 		
-		JMenu mnTeste = new JMenu("teste");
-		menuBar.add(mnTeste);
+		JMenu arquivo = new JMenu("Arquivo");
+		menuBar.add(arquivo);
 		
-		JMenuItem mntmTeste = new JMenuItem("teste2");
-		mnTeste.add(mntmTeste);
-		
-		menuBar.setLayout(new GridBagLayout());
-		setJMenuBar(menuBar);
-		setVisible(true);
+		JMenuItem indexar = new JMenuItem("Indexar");
+		indexar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				try {
+					ViewIndexador indexador = new ViewIndexador();
+					indexador.setVisible(true);
+					desktopPane.add(indexador);
+					indexador.setSelected(true);
+				} catch (Exception e2) {
+					// TODO: handle exception
+					e2.printStackTrace();
+				}
+			}
+		});
+		arquivo.add(indexar);
 	}
+
 }
