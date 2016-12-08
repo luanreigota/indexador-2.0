@@ -5,6 +5,35 @@
   </entity.Extensoes>
   <entity.Extensoes>
     <extensao>.pdf</extensao>
-    
+  </entity.Extensoes>
+    <entity.Extensoes>
+    <extensao>.doc</extensao>
+  </entity.Extensoes>
+    <entity.Extensoes>
+    <extensao>.docx</extensao>
+  </entity.Extensoes>
+    <entity.Extensoes>
+    <extensao>.css</extensao>
+  </entity.Extensoes>
+    <entity.Extensoes>
+    <extensao>.js</extensao>
+  </entity.Extensoes>
+    <entity.Extensoes>
+    <extensao>.html</extensao>
+  </entity.Extensoes>
+    <entity.Extensoes>
+    <extensao>.htm</extensao>
+  </entity.Extensoes>
+    <entity.Extensoes>
+    <extensao>.java</extensao>
+  </entity.Extensoes>
+    <entity.Extensoes>
+    <extensao>.jpg</extensao>
+  </entity.Extensoes>
+    <entity.Extensoes>
+    <extensao>.png</extensao>
+  </entity.Extensoes>
+    <entity.Extensoes>
+    <extensao>.bmp</extensao>
   </entity.Extensoes>
 </list>

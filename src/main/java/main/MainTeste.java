@@ -1,14 +1,12 @@
 package main;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import config.GenericSerialization;
-import config.SerializacaoConfig;
-import config.SerializacaoExtensoes;
-import entity.Config;
-import entity.Extensoes;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 
 
 
@@ -20,14 +18,14 @@ public class MainTeste {
 //		extensoes.add(new Extensoes(".php"));
 //		extensoes.add(new Extensoes(".pdf"));
 		
-		Config config = (Config) new SerializacaoConfig().leitor();
-		System.out.println(config.getPathIndexar());
-		System.out.println(config.getPathIndice());
-		
-		new SerializacaoConfig().alterarPathIndice("novo indice");
-		Config config2 = (Config) new SerializacaoConfig().leitor();
-		System.out.println(config2.getPathIndexar());
-		System.out.println(config2.getPathIndice());
+//		Config config = (Config) new SerializacaoConfig().leitor();
+//		System.out.println(config.getPathIndexar());
+//		System.out.println(config.getPathIndice());
+//		
+//		new SerializacaoConfig().alterarPathIndice("novo indice");
+//		Config config2 = (Config) new SerializacaoConfig().leitor();
+//		System.out.println(config2.getPathIndexar());
+//		System.out.println(config2.getPathIndice());
 //		new SerializacaoExtensoes().addExtensao(".html");
 		
 		
@@ -46,7 +44,7 @@ public class MainTeste {
 //		new SerializacaoExtensoes().inserirExtensao();
 //		new ManipuladorConfig().leitor("../indexado-2.0/src/main/java/config/config.xml");
 		
-		/*
+		
 		Path path = Paths.get(System.getProperty("user.home")+"/bkp-portal-cmrj");
 		Files.walkFileTree(path, new SimpleFileVisitor<Path>(){
 		
@@ -62,7 +60,7 @@ public class MainTeste {
 				// TODO Auto-generated method stub
 				return super.visitFile(file, attrs);
 			}
-		});*/
+		});
 		
 	}
 }

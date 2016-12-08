@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity.Config>
-  <pathIndice></pathIndice>
-  <pathIndexar></pathIndexar>
+  <pathIndice>c:/indice</pathIndice>
+  <pathIndexar>c:/teste</pathIndexar>
 </entity.Config>

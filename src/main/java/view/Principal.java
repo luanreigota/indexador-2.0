@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JDesktopPane;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -33,14 +32,12 @@ public class Principal {
 			}
 		});
 	}
-
 	/**
 	 * Create the application.
 	 */
 	public Principal() {
 		initialize();
 	}
-
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -56,8 +53,6 @@ public class Principal {
 		
 		JMenuBar menuBar = getMyJMenuBar(desktopPane);
 		frame.getContentPane().add(menuBar, BorderLayout.NORTH);
-		
-		
 	}
 
 	private JMenuBar getMyJMenuBar(JDesktopPane desktopPane){
@@ -67,7 +62,6 @@ public class Principal {
 		
 		JMenuItem indexar = new JMenuItem("Indexar");
 		indexar.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
