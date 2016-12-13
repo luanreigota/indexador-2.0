@@ -20,6 +20,7 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
+import actions.Indexar;
 import actions.SelectPasta;
 import config.SerializacaoConfig;
 import config.SerializacaoExtensoes;
@@ -52,8 +53,9 @@ public class ViewIndexador extends JInternalFrame {
 
 	/**
 	 * Create the frame.
-	 * @throws PropertyVetoException 
-	 * @throws IOException 
+	 * 
+	 * @throws PropertyVetoException
+	 * @throws IOException
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ViewIndexador() throws PropertyVetoException, IOException {
@@ -62,72 +64,87 @@ public class ViewIndexador extends JInternalFrame {
 		setClosable(true);
 		getContentPane().setForeground(Color.WHITE);
 		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
-		
+
 		Config config = (Config) new SerializacaoConfig().leitor();
-		
+
 		JPanel diretorios = new JPanel();
 		getContentPane().add(diretorios);
 		diretorios.setLayout(new GridLayout(2, 1, 0, 0));
-		
+
 		JPanel indexar = new JPanel();
 		diretorios.add(indexar);
 		indexar.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
+
 		JLabel lblIndexar = new JLabel("Indexar: ");
 		indexar.add(lblIndexar);
-		
+
 		pastaPIndexar = new JTextField();
 		pastaPIndexar.setText(config.getPathIndexar());
 		indexar.add(pastaPIndexar);
 		pastaPIndexar.setColumns(30);
-		
+
 		JButton selectPastaIndexar = new JButton("");
 		selectPastaIndexar.addActionListener(new SelectPasta(pastaPIndexar));
-		selectPastaIndexar.setIcon(new ImageIcon(ViewIndexador.class.getResource("/javax/swing/plaf/metal/icons/ocean/directory.gif")));
+		selectPastaIndexar.setIcon(
+				new ImageIcon(ViewIndexador.class.getResource("/javax/swing/plaf/metal/icons/ocean/directory.gif")));
 		indexar.add(selectPastaIndexar);
-		
+
 		JPanel indice = new JPanel();
 		diretorios.add(indice);
-		
+
 		JLabel lblIndice = new JLabel("Indice: ");
 		indice.add(lblIndice);
-		
+
 		pastapIndice = new JTextField();
 		pastapIndice.setText(config.getPathIndice());
 		indice.add(pastapIndice);
 		pastapIndice.setColumns(30);
-		
+
 		JButton selectPastaIndice = new JButton("");
 		selectPastaIndice.addActionListener(new SelectPasta(pastapIndice));
-		selectPastaIndice.setIcon(new ImageIcon(ViewIndexador.class.getResource("/javax/swing/plaf/metal/icons/ocean/directory.gif")));
+		selectPastaIndice.setIcon(
+				new ImageIcon(ViewIndexador.class.getResource("/javax/swing/plaf/metal/icons/ocean/directory.gif")));
 		indice.add(selectPastaIndice);
-		
+
 		JPanel extensoes = new JPanel();
 		getContentPane().add(extensoes);
 		extensoes.setLayout(new GridLayout(2, 1, 0, 0));
-		
+
 		JPanel panelExtensoes = new JPanel();
 		extensoes.add(panelExtensoes);
 		DefaultListModel<String> model = new DefaultListModel<>();
-		
+
 		for (Extensoes e : ((List<Extensoes>) new SerializacaoExtensoes().leitor())) {
 			model.addElement(e.getExtensao());
 		}
 		JScrollPane scrollPaneExtensoes = new JScrollPane();
 		scrollPaneExtensoes.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		panelExtensoes.add(scrollPaneExtensoes);
-		
+
 		JList listExtensoes = new JList();
+		listExtensoes.setVisibleRowCount(5);
 		listExtensoes.setModel(model);
 		scrollPaneExtensoes.setViewportView(listExtensoes);
-		
+
 		JPanel botoes = new JPanel();
 		extensoes.add(botoes);
-		
+
 		JButton ok = new JButton("ok");
+		ok.addActionListener(new Indexar(pastaPIndexar, pastapIndice, listExtensoes));
+//		ok.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				try {
+//					Config config = new Config(pastapIndice.getText(), pastaPIndexar.getText());
+//					new SerializacaoConfig().alterarPathIndice(config.getPathIndice());
+//					new SerializacaoConfig().alterarPathIndexar(config.getPathIndexar());
+//				} catch (IOException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
+//			}
+//		});
 		ok.setVerticalAlignment(SwingConstants.BOTTOM);
-		botoes.add(ok);
-		
+
 		JButton cancelar = new JButton("Cancelar");
 		cancelar.addActionListener(new ActionListener() {
 			@Override
@@ -135,6 +152,11 @@ public class ViewIndexador extends JInternalFrame {
 				dispose();
 			}
 		});
+		botoes.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		botoes.add(ok);
+
+		JLabel label = new JLabel("");
+		botoes.add(label);
 		botoes.add(cancelar);
 		setBounds(0, 0, 850, 400);
 

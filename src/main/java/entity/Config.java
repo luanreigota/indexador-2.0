@@ -8,6 +8,9 @@ public class Config {
 	//pasta para indexar
 	private String pathIndexar;
 
+	public Config() {
+		
+	}
 	
 	public Config(String pathIndice, String pathIndexar) {
 		super();

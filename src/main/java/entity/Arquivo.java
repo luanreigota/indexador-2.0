@@ -1,5 +1,8 @@
 package entity;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+
 public class Arquivo {
 	
 	private String nome;
@@ -7,7 +10,15 @@ public class Arquivo {
 	private String caminho;
 	private String ultimaModificacao;
 
-
+	
+	public Arquivo(File file) {
+		// TODO Auto-generated constructor stub
+		SimpleDateFormat formatador = new SimpleDateFormat("yyyyMMdd");
+		caminho = file.getPath();
+		nome=file.getName();
+		ultimaModificacao = formatador.format(file.lastModified());
+		
+	}
 	
 	
 	public String getNome() {

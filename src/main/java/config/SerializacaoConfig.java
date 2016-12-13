@@ -23,8 +23,11 @@ public class SerializacaoConfig extends GenericSerialization{
 	public void alterarPathIndexar(String newPathIndexar) throws IOException {
 		// TODO Auto-generated method stub
 		Config config = (Config)leitor();
-		config.setPathIndice(newPathIndexar);
+		config.setPathIndexar(newPathIndexar);
 		inserir(config);
 	}
+	
+	
+
 	
 }
