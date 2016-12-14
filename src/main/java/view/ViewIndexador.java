@@ -131,18 +131,6 @@ public class ViewIndexador extends JInternalFrame {
 
 		JButton ok = new JButton("ok");
 		ok.addActionListener(new Indexar(pastaPIndexar, pastapIndice, listExtensoes));
-//		ok.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				try {
-//					Config config = new Config(pastapIndice.getText(), pastaPIndexar.getText());
-//					new SerializacaoConfig().alterarPathIndice(config.getPathIndice());
-//					new SerializacaoConfig().alterarPathIndexar(config.getPathIndexar());
-//				} catch (IOException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}
-//			}
-//		});
 		ok.setVerticalAlignment(SwingConstants.BOTTOM);
 
 		JButton cancelar = new JButton("Cancelar");
@@ -160,5 +148,7 @@ public class ViewIndexador extends JInternalFrame {
 		botoes.add(cancelar);
 		setBounds(0, 0, 850, 400);
 
+		
 	}
+	
 }
